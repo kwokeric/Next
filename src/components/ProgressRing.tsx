@@ -26,7 +26,7 @@ export function ProgressRing({
   const percent = Math.round(clamped * 100);
   const offset = circumference * (1 - clamped);
   const isComplete = clamped >= 1;
-  const checkSize = size * 0.65;
+  const checkSize = size * 0.75;
   // The ring is otherwise empty at 0% progress — this dot is the only cue
   // that a not-yet-started task is the next one to work on.
   const showDot = isNextTask && clamped <= 0;

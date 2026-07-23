@@ -85,7 +85,6 @@ export function TaskRow({
   // drag, which used to cancel the pointer sequence before pointerup fired.
   function handleRowPointerDown(e: React.PointerEvent<HTMLDivElement>) {
     swipeStartX.current = e.clientX;
-    e.currentTarget.setPointerCapture(e.pointerId);
   }
 
   function handleRowPointerUp(e: React.PointerEvent<HTMLDivElement>) {
@@ -134,7 +133,7 @@ export function TaskRow({
           onClick={() => setIsEditing(true)}
         >
           <input
-            className={`${styles.input} ${isEditing ? styles.inputEdit : ""}`}
+            className={styles.input}
             value={_taskTitle}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}

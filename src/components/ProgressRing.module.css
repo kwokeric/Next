@@ -26,9 +26,7 @@
   stroke: var(--color-complete);
 }
 
-/* Higher specificity than .progressActive/.progressComplete (2 classes vs
-   1), so this wins without needing !important — orange always means "this
-   is the next task," regardless of how far along it is. */
+/* Higher specificity than .progressActive/.progressComplete. */
 .isNextTask .progress {
   stroke: var(--color-next);
 }
@@ -59,4 +57,20 @@
   align-items: center;
   justify-content: center;
   color: var(--color-complete);
+  animation: checkPop 0.4s cubic-bezier(0.38, 0.31, 0.78, 1.52);
+}
+
+@keyframes checkPop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .check {
+    animation: none;
+  }
 }
