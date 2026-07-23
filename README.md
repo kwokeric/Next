@@ -1,28 +1,23 @@
-## Next — task manager
+## Next — A simpler task manager
 
-## Setup
+There are many task managers help you organize work. Next focuses on the hardest
+part: getting started. Big tasks (clean the apartment, plan a trip) create
+uncertainty about where to begin, which leads to procrastination — often not
+from a lack of motivation, but from the absence of a clear first step. This
+is especially true for people with ADHD, anxiety, or other causes of
+executive dysfunction.
 
-1. `.env` already exists — edit it and fill in:
-   - `DATABASE_URL` — a Postgres connection string. Easiest options: install Postgres locally, run one via Docker, or use a free hosted instance (Neon, Supabase, Railway).
-   - `ANTHROPIC_API_KEY` — get one at [platform.claude.com](https://platform.claude.com).
-2. Install dependencies (already done): `npm install`
-3. Apply the schema to your database:
-   ```
-   npx prisma migrate dev --name init
-   ```
-4. Seed a demo project:
-   ```
-   npx prisma db seed
-   ```
-5. Run the dev server:
-   ```
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000).
+Next's answer: any task can be divided into a smaller one. Keep dividing
+until the next step feels almost impossible to avoid — by hand, or with
+Claude proposing a breakdown — and Next always surfaces that one next action
+instead of a wall of to-dos, rolling progress up the tree as subtasks get
+checked off.
+
+![Next screenshot](./screenshot.png)
 
 ## Stack
 
-- Next.js 16 (App Router) + TypeScript + Tailwind
+- Next.js 16 (App Router) + TypeScript + CSS Modules
 - Prisma 7 (driver adapter: `@prisma/adapter-pg`) + PostgreSQL
 - Claude API (`@anthropic-ai/sdk`) for the "Break Down" feature
 - Fractional indexing (`fractional-indexing`) for task ordering — see `src/lib/order.ts`
@@ -38,9 +33,3 @@
 - `src/components/TaskApp.tsx` — client-side state + orchestration
 - `src/components/TaskRow.tsx` — recursive task tree row
 - `src/components/NextActionCard.tsx` — the "Next Action" surface
-
-## Notes
-
-- No auth yet — every request acts as a single seeded demo user (`src/lib/demo-user.ts`).
-- Drag-and-drop reordering isn't wired into the UI yet, but the API
-  (`PATCH /api/tasks/[taskId]/reorder`) and fractional-index logic are ready for it.
