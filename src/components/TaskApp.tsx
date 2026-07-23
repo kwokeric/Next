@@ -116,6 +116,13 @@ export function TaskApp({
         ))}
       </ul>
 
+      <button
+        onClick={() => openAddTaskModal(null)}
+        className={styles.addTaskButton}
+      >
+        + Add task
+      </button>
+
       {completedTasks.length > 0 && (
         <>
           <h2 className={styles.sectionHeader}>Completed</h2>
@@ -136,14 +143,6 @@ export function TaskApp({
           </ul>
         </>
       )}
-
-      <button
-        onClick={() => openAddTaskModal(null)}
-        className={styles.addTaskButton}
-        aria-label="Add task"
-      >
-        +
-      </button>
 
       {addTaskParentId !== undefined && (
         <AddTaskModal

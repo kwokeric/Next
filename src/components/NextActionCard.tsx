@@ -31,12 +31,21 @@ export function NextActionCard({
               className={styles.checkButton}
               aria-label="Complete task"
             >
-              ✓
+              <svg width="24" height="24" viewBox="0 0 16 16" aria-hidden="true">
+                <path
+                  d="M4 8.5 L7 11.5 L12 5"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </button>
           </div>
         </div>
       ) : (
-        <p className={styles.empty}>Nothing left — add a task to get started.</p>
+        <p className={styles.empty}>Nothing left! Add a task to get started.</p>
       )}
     </div>
   );

@@ -2,24 +2,14 @@
    render inside that same group (see .subList) instead of getting borders
    of their own. */
 .card {
-  margin-top: 0.75rem;
   background: var(--color-bg);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: 0.5rem;
+  border-top: 1px solid var(--color-border-subtle);
   font-size: 1.125rem;
-  padding: 0.5rem;
+  padding: 0.25rem;
 }
 
 .card:first-child {
   margin-top: 0;
-}
-
-.listItem {
-  margin-top: 0.25rem;
-}
-
-.subList {
-  margin-top: 0.25rem;
 }
 
 .row {

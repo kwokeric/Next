@@ -26,24 +26,23 @@
 }
 
 .addTaskButton {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  margin: 1.5rem auto 0;
-  width: 3rem;
-  height: 3rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
   border: none;
-  border-radius: 50%;
-  background: var(--color-highlight-bg);
-  color: var(--btn-primary-fg);
-  font-size: 1.5rem;
-  line-height: 1;
+  border-radius: 0.5rem;
+  background: var(--color-surface);
+  color: var(--color-muted-fg);
+  font-size: 0.9375rem;
+  font-weight: 500;
   cursor: pointer;
 }
 
 .addTaskButton:hover,
 .addTaskButton:active {
-  background: var(--btn-primary-bg-hover);
+  background: var(--color-surface-hover);
+  color: var(--color-fg);
 }
 
 .nextStepBar {
@@ -51,9 +50,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--color-bg);
-  border-top: 1px solid var(--color-border-subtle);
-  padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(
+    to bottom,
+    transparent 0,
+    color-mix(in srgb, var(--color-bg) 60%, transparent) 3rem,
+    var(--color-bg) 3rem
+  );
+  padding: 3rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
   z-index: 40;
 }
 
