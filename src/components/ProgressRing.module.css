@@ -1,0 +1,62 @@
+.wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.svg {
+  /* Start the progress stroke at 12 o'clock instead of 3 o'clock. */
+  transform: rotate(-90deg);
+}
+
+.track {
+  stroke: var(--color-border-subtle);
+}
+
+.progress {
+  transition:
+    stroke-dashoffset 0.3s ease,
+    stroke 0.2s ease;
+}
+
+.progressActive {
+  stroke: var(--color-in-progress);
+}
+
+.progressComplete {
+  stroke: var(--color-complete);
+}
+
+/* Higher specificity than .progressActive/.progressComplete (2 classes vs
+   1), so this wins without needing !important — orange always means "this
+   is the next task," regardless of how far along it is. */
+.isNextTask .progress {
+  stroke: var(--color-next);
+}
+
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--color-next);
+}
+
+.label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.check {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-complete);
+}
